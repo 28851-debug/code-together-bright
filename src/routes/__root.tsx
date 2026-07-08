@@ -77,20 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "LavTudo — Lavanderia self-service" },
+      {
+        name: "description",
+        content:
+          "LavTudo: acompanhe sua lavagem em tempo real. Escaneie o NFC ou o QR Code da máquina.",
+      },
+      { name: "author", content: "LavTudo" },
+      { property: "og:title", content: "LavTudo — Lavanderia self-service" },
+      {
+        property: "og:description",
+        content:
+          "Lavadoras, secadoras e lavadora pet — com painel em tempo real via NFC ou QR Code.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
@@ -119,8 +123,10 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <MachineProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </MachineProvider>
     </QueryClientProvider>
   );
 }
