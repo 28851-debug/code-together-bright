@@ -4,11 +4,9 @@ import {
   WashingMachine,
   Wind,
   Thermometer,
-  RotateCw,
   Droplets,
-  Zap,
   Clock,
-  Hash,
+  CheckCircle2,
 } from "lucide-react";
 import {
   STATUS_LABEL,
@@ -37,6 +35,7 @@ export function MachineDashboard({ machine }: { machine: Machine }) {
   const stages = stagesFor(machine.type);
   const currentIdx = stages.indexOf(machine.status);
   const Icon = machine.type === "washer" ? WashingMachine : Wind;
+  const isDryer = machine.type === "dryer";
 
   return (
     <div className="container-page">
@@ -72,9 +71,7 @@ export function MachineDashboard({ machine }: { machine: Machine }) {
           <div className="progress-time">
             {formatDuration(machine.remainingSeconds)}
           </div>
-          <div className="progress-sub">
-            {pct.toFixed(0)}% concluído • Ciclo {machine.cycleNumber}
-          </div>
+          <div className="progress-sub">{pct.toFixed(0)}% concluído</div>
           <div className="progress-bar-outer" aria-label="Progresso do ciclo">
             <div className="progress-bar-inner" style={{ width: `${pct}%` }} />
           </div>
@@ -87,35 +84,34 @@ export function MachineDashboard({ machine }: { machine: Machine }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Stat
-            icon={<Thermometer size={20} color="#f59e0b" />}
-            label="Temperatura"
-            value={`${machine.waterTempC}°C`}
-          />
-          <Stat
-            icon={<RotateCw size={20} color="#479fdf" />}
-            label="Rotação"
-            value={`${machine.spinRpm} rpm`}
-          />
-          <Stat
-            icon={<Droplets size={20} color="#38bdf8" />}
-            label="Água"
-            value={`${machine.waterLiters} L`}
-          />
-          <Stat
-            icon={<Zap size={20} color="#facc15" />}
-            label="Energia"
-            value={`${machine.energyKwh.toFixed(2)} kWh`}
-          />
+          {isDryer && (
+            <Stat
+              icon={<Thermometer size={20} color="#f59e0b" />}
+              label="Temperatura"
+              value={`${machine.tempC}°C`}
+            />
+          )}
+          {!isDryer && (
+            <Stat
+              icon={<Droplets size={20} color="#38bdf8" />}
+              label="Água"
+              value={`${machine.waterLiters} L`}
+            />
+          )}
           <Stat
             icon={<Clock size={20} color="#a78bfa" />}
             label="Início"
             value={formatClock(machine.startedAt)}
           />
           <Stat
-            icon={<Hash size={20} color="#7c5cbf" />}
+            icon={<Clock size={20} color="#7c5cbf" />}
             label="Previsão"
             value={formatClock(estimatedFinish(machine))}
+          />
+          <Stat
+            icon={<CheckCircle2 size={20} color={machine.available ? "#22c55e" : "#f43f5e"} />}
+            label="Disponibilidade"
+            value={machine.available ? "Disponível" : "Em uso"}
           />
         </motion.div>
       </div>

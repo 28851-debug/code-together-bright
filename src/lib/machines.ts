@@ -20,11 +20,9 @@ export type Machine = {
   process: string;
   totalSeconds: number;
   remainingSeconds: number;
-  cycleNumber: number;
-  waterTempC: number;
-  spinRpm: number;
+  /** Water/drying temperature. Only used for dryers in the UI. */
+  tempC: number;
   waterLiters: number;
-  energyKwh: number;
   startedAt: number | null; // epoch ms
   available: boolean;
 };
@@ -38,11 +36,8 @@ export const DEFAULT_MACHINES: Machine[] = [
     process: "Lavagem principal",
     totalSeconds: 45 * 60,
     remainingSeconds: 27 * 60,
-    cycleNumber: 128,
-    waterTempC: 40,
-    spinRpm: 800,
+    tempC: 40,
     waterLiters: 48,
-    energyKwh: 0.9,
     startedAt: Date.now() - 18 * 60 * 1000,
     available: false,
   },
@@ -54,11 +49,8 @@ export const DEFAULT_MACHINES: Machine[] = [
     process: "Aguardando",
     totalSeconds: 45 * 60,
     remainingSeconds: 45 * 60,
-    cycleNumber: 87,
-    waterTempC: 30,
-    spinRpm: 1000,
+    tempC: 30,
     waterLiters: 52,
-    energyKwh: 1.1,
     startedAt: null,
     available: true,
   },
@@ -70,11 +62,8 @@ export const DEFAULT_MACHINES: Machine[] = [
     process: "Secagem intensa",
     totalSeconds: 30 * 60,
     remainingSeconds: 12 * 60,
-    cycleNumber: 54,
-    waterTempC: 60,
-    spinRpm: 0,
+    tempC: 60,
     waterLiters: 0,
-    energyKwh: 1.6,
     startedAt: Date.now() - 18 * 60 * 1000,
     available: false,
   },
@@ -86,17 +75,14 @@ export const DEFAULT_MACHINES: Machine[] = [
     process: "Aguardando",
     totalSeconds: 30 * 60,
     remainingSeconds: 30 * 60,
-    cycleNumber: 31,
-    waterTempC: 55,
-    spinRpm: 0,
+    tempC: 55,
     waterLiters: 0,
-    energyKwh: 1.4,
     startedAt: null,
     available: true,
   },
 ];
 
-export const STORAGE_KEY = "lavtudo.machines.v1";
+export const STORAGE_KEY = "lavtudo.machines.v2";
 export const CHANNEL_NAME = "lavtudo-sync";
 
 export const STATUS_LABEL: Record<MachineStatus, string> = {
