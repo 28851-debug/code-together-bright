@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -39,7 +39,22 @@ function Index() {
           <img src={logo} alt="Máquina LavTudo" className="logo-icon" />
           <h3>LavTudo</h3>
         </div>
-        <button id="contato">Entre em Contato</button>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <Link
+            to="/scan"
+            id="contato"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
+              background: "linear-gradient(to right, #479fdf, #7c5cbf)",
+            }}
+          >
+            Escanear
+          </Link>
+          <button id="contato">Entre em Contato</button>
+        </div>
       </header>
 
       <div className="slider-container">
@@ -121,7 +136,9 @@ function Index() {
         </div>
       </div>
       <div className="btn-container">
-        <button className="btn-acompanhar">Acompanhar Lavagem</button>
+        <Link to="/scan" className="btn-acompanhar" style={{ textDecoration: "none", display: "inline-block" }}>
+          Acompanhar Lavagem
+        </Link>
       </div>
     </main>
   );
