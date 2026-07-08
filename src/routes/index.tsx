@@ -136,7 +136,9 @@ function Index() {
         </div>
       </div>
       <div className="btn-container">
-        <button className="btn-acompanhar">Acompanhar Lavagem</button>
+        <Link to="/scan" className="btn-acompanhar" style={{ textDecoration: "none", display: "inline-block" }}>
+          Acompanhar Lavagem
+        </Link>
       </div>
     </main>
   );
