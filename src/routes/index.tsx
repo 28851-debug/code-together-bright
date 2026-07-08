@@ -24,7 +24,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Lavadoras, secadoras e lavadora pet. Escaneie o QR code e acompanhe sua lavagem em tempo real.",
+          "LavTudo: lavanderia self-service com lavadoras, secadoras e lavadora pet. Escaneie o QR code e acompanhe sua lavagem.",
       },
     ],
   }),

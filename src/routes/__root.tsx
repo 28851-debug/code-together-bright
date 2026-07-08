@@ -82,17 +82,21 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "LavTudo: acompanhe sua lavagem em tempo real. Escaneie o NFC ou o QR Code da máquina.",
+          "LavTudo: lavanderia self-service com lavadoras, secadoras e lavadora pet. Escaneie o QR code e acompanhe sua lavagem.",
       },
       { name: "author", content: "LavTudo" },
       { property: "og:title", content: "LavTudo — Lavanderia self-service" },
       {
         property: "og:description",
         content:
-          "Lavadoras, secadoras e lavadora pet — com painel em tempo real via NFC ou QR Code.",
+          "LavTudo: lavanderia self-service com lavadoras, secadoras e lavadora pet. Escaneie o QR code e acompanhe sua lavagem.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "LavTudo — Lavanderia self-service" },
+      { name: "twitter:description", content: "LavTudo: lavanderia self-service com lavadoras, secadoras e lavadora pet. Escaneie o QR code e acompanhe sua lavagem." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a917f248-eb18-4f66-9223-858381f1c9ac/id-preview-046debbd--a05b88b7-d7e4-4f47-afaa-491a199cd690.lovable.app-1783546234884.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/a917f248-eb18-4f66-9223-858381f1c9ac/id-preview-046debbd--a05b88b7-d7e4-4f47-afaa-491a199cd690.lovable.app-1783546234884.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
