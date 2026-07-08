@@ -34,6 +34,13 @@
     margin-left: -12px;
 }
 
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
 #contato {
     height: 40px;
     padding: 0 15px;
@@ -43,7 +50,24 @@
     border: none;
     font-weight: bold;
     cursor: pointer;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: 1;
+    transition: opacity 0.2s, transform 0.2s;
 }
+
+#contato:hover {
+    opacity: 0.9;
+}
+
+.btn-escanear {
+    background: linear-gradient(to right, #479fdf, #7c5cbf);
+}
+
 
 .slider-container {
     width: 100%;
