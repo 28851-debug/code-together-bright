@@ -142,3 +142,14 @@
     color: var(--color-foreground);
   }
 }
+
+/* Hide Lovable badge on published deployments */
+#lovable-badge,
+a[href*="lovable.dev"][aria-label*="Edit" i],
+a[href*="lovable.dev/projects"],
+[data-lovable-badge] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
