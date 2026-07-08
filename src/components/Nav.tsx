@@ -24,14 +24,8 @@ export function Nav() {
         >
           Scan
         </Link>
-        <Link
-          to="/admin"
-          className="lav-nav-link"
-          activeProps={{ className: "lav-nav-link active" }}
-        >
-          Admin
-        </Link>
       </div>
+
     </nav>
   );
 }

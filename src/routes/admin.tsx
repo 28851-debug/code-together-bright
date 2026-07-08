@@ -9,7 +9,7 @@ import "@/styles/app.css";
 
 const AUTH_KEY = "lavtudo.admin.session";
 const ADMIN_USER = "admin";
-const ADMIN_PASS = "123456";
+const ADMIN_PASS = "admin";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
@@ -109,7 +109,7 @@ function LoginForm({ onOk }: { onOk: () => void }) {
           </button>
         </div>
         <div className="login-hint">
-          Dica TCC: <b>admin</b> / <b>123456</b>
+          Acesso restrito ao administrador.
         </div>
       </motion.form>
     </div>
@@ -245,32 +245,20 @@ function AdminDashboard({ onLogout }: { onLogout: () => void }) {
                   updateMachine(m.id, { totalSeconds: Math.max(1, v) })
                 }
               />
-              <NumField
-                label="Ciclo #"
-                value={m.cycleNumber}
-                onChange={(v) => updateMachine(m.id, { cycleNumber: v })}
-              />
-              <NumField
-                label="Temperatura °C"
-                value={m.waterTempC}
-                onChange={(v) => updateMachine(m.id, { waterTempC: v })}
-              />
-              <NumField
-                label="Rotação (rpm)"
-                value={m.spinRpm}
-                onChange={(v) => updateMachine(m.id, { spinRpm: v })}
-              />
-              <NumField
-                label="Água (L)"
-                value={m.waterLiters}
-                onChange={(v) => updateMachine(m.id, { waterLiters: v })}
-              />
-              <NumField
-                label="Energia (kWh)"
-                value={m.energyKwh}
-                step={0.1}
-                onChange={(v) => updateMachine(m.id, { energyKwh: v })}
-              />
+              {m.type === "dryer" && (
+                <NumField
+                  label="Temperatura °C"
+                  value={m.tempC}
+                  onChange={(v) => updateMachine(m.id, { tempC: v })}
+                />
+              )}
+              {m.type === "washer" && (
+                <NumField
+                  label="Água (L)"
+                  value={m.waterLiters}
+                  onChange={(v) => updateMachine(m.id, { waterLiters: v })}
+                />
+              )}
               <div className="field">
                 <label>Disponível</label>
                 <select
