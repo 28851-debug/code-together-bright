@@ -209,3 +209,86 @@
     font-size: 1.5rem;
     margin-top: 30px;
 }
+
+/* -------------------------------------------------------
+   Responsive polish — header actions + hero CTA
+   ------------------------------------------------------- */
+
+.btn-container {
+    padding: 0 20px;
+}
+
+.btn-acompanhar {
+    max-width: 100%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Tablets and small laptops */
+@media (max-width: 768px) {
+    .cima {
+        padding: 0 16px;
+        gap: 12px;
+    }
+    .cima img {
+        width: 56px;
+        margin-left: -8px;
+    }
+    .cima h3 {
+        font-size: 1.1rem;
+        margin-left: -8px;
+    }
+    .header-actions {
+        gap: 8px;
+    }
+    #contato {
+        height: 38px;
+        padding: 0 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Standard phones */
+@media (max-width: 480px) {
+    .cima {
+        padding: 0 12px;
+        gap: 8px;
+    }
+    .cima img {
+        width: 44px;
+        margin-left: -4px;
+    }
+    .cima h3 {
+        font-size: 1rem;
+        margin-left: -4px;
+    }
+    .header-actions {
+        gap: 6px;
+    }
+    #contato {
+        height: 36px;
+        padding: 0 12px;
+        font-size: 0.82rem;
+        border-radius: 9px;
+    }
+    .btn-acompanhar {
+        width: 100%;
+        max-width: 320px;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+    }
+    .btn-container {
+        margin: 18px 0 6px;
+    }
+}
+
+/* Small phones (<=360px): hide logo wordmark, keep buttons balanced */
+@media (max-width: 360px) {
+    .cima h3 {
+        display: none;
+    }
+    #contato {
+        padding: 0 10px;
+        font-size: 0.78rem;
+    }
+}
