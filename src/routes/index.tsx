@@ -39,7 +39,22 @@ function Index() {
           <img src={logo} alt="Máquina LavTudo" className="logo-icon" />
           <h3>LavTudo</h3>
         </div>
-        <button id="contato">Entre em Contato</button>
+        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+          <Link
+            to="/scan"
+            id="contato"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textDecoration: "none",
+              background: "linear-gradient(to right, #479fdf, #7c5cbf)",
+            }}
+          >
+            Escanear
+          </Link>
+          <button id="contato">Entre em Contato</button>
+        </div>
       </header>
 
       <div className="slider-container">
